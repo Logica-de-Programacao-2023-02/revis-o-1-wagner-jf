@@ -15,5 +15,21 @@ package q5
 //Ajude Pedro a lidar com esta tarefa fácil.
 
 func ProcessString(s string) string {
-	return ""
+		var resultado strings.Builder
+
+	for _, char := range s {
+		if strings.ContainsAny(string(char), "aeiouAEIOU") {
+			continue
+		}
+
+		resultado.WriteRune('.')
+		
+		if char >= 'A' && char <= 'Z' {
+			char += 'a' - 'A'
+		}
+
+		resultado.WriteRune(char)
+	}
+
+	return resultado.String()
 }
